@@ -1,4 +1,7 @@
 ﻿
+using ScottPlot;
+using System.IO;
+
 namespace Bayes4
 {
     partial class Form1
@@ -29,406 +32,387 @@ namespace Bayes4
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.formsPlot1 = new ScottPlot.FormsPlot();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.formsPlot2 = new ScottPlot.FormsPlot();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.formsPlot3 = new ScottPlot.FormsPlot();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.formsPlot4 = new ScottPlot.FormsPlot();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadPriorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadLikelihoodsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadTimeSeriesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveSectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectToGPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectToDynasimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectToTCPIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.priorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showPriorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.likelihoodTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.versionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.supportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            formsPlot1 = new ScottPlot.FormsPlot();
+            timer1 = new System.Windows.Forms.Timer(components);
+            formsPlot2 = new ScottPlot.FormsPlot();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            formsPlot3 = new ScottPlot.FormsPlot();
+            comboBox1 = new System.Windows.Forms.ComboBox();
+            formsPlot4 = new ScottPlot.FormsPlot();
+            label4 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            menuStrip1 = new System.Windows.Forms.MenuStrip();
+            fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            loadPriorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            loadLikelihoodsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            loadTimeSeriesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            saveSectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            connectToGPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            connectToDynasimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            connectToTCPIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            priorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            showPriorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            likelihoodTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            versionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            supportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            comboBox2 = new System.Windows.Forms.ComboBox();
+            label9 = new System.Windows.Forms.Label();
+            bindingSource1 = new System.Windows.Forms.BindingSource(components);
+            textBox1 = new System.Windows.Forms.TextBox();
+            timer2 = new System.Windows.Forms.Timer(components);
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
+            menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
+            SuspendLayout();
             // 
             // fileSystemWatcher1
             // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
+            fileSystemWatcher1.EnableRaisingEvents = true;
+            fileSystemWatcher1.SynchronizingObject = this;
             // 
             // formsPlot1
             // 
-            this.formsPlot1.Location = new System.Drawing.Point(39, 38);
-            this.formsPlot1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.formsPlot1.Name = "formsPlot1";
-            this.formsPlot1.Size = new System.Drawing.Size(467, 187);
-            this.formsPlot1.TabIndex = 0;
-            this.formsPlot1.Load += new System.EventHandler(this.formsPlot1_Load_1);
+            formsPlot1.Location = new System.Drawing.Point(39, 38);
+            formsPlot1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            formsPlot1.Name = "formsPlot1";
+            formsPlot1.Size = new System.Drawing.Size(467, 187);
+            formsPlot1.TabIndex = 0;
+            formsPlot1.Load += formsPlot1_Load_1;
             // 
             // timer1
             // 
-            this.timer1.Interval = 1;
-            this.timer1.Tick += new System.EventHandler(this.Tempo);
+            timer1.Interval = 1;
+            timer1.Tick += Tempo;
             // 
             // formsPlot2
             // 
-            this.formsPlot2.Location = new System.Drawing.Point(514, 38);
-            this.formsPlot2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.formsPlot2.Name = "formsPlot2";
-            this.formsPlot2.Size = new System.Drawing.Size(229, 187);
-            this.formsPlot2.TabIndex = 2;
-            this.formsPlot2.Load += new System.EventHandler(this.formsPlot2_Load);
+            formsPlot2.Location = new System.Drawing.Point(514, 38);
+            formsPlot2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            formsPlot2.Name = "formsPlot2";
+            formsPlot2.Size = new System.Drawing.Size(229, 187);
+            formsPlot2.TabIndex = 2;
+            formsPlot2.Load += formsPlot2_Load;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(98, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "FPSO Heading (deg)";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(98, 47);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(114, 15);
+            label1.TabIndex = 3;
+            label1.Text = "FPSO Heading (deg)";
+            label1.Click += label1_Click;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(627, 210);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "X (m)";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(627, 210);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(36, 15);
+            label2.TabIndex = 4;
+            label2.Text = "X (m)";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(514, 113);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Y (m)";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(514, 113);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(36, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Y (m)";
+            label3.Click += label3_Click;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(618, 47);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 15);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "FPSO OFFSET (m)";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(618, 47);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(99, 15);
+            label5.TabIndex = 7;
+            label5.Text = "FPSO OFFSET (m)";
+            label5.Click += label5_Click;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(430, 210);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 15);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Time (sec)";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(430, 210);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(61, 15);
+            label6.TabIndex = 8;
+            label6.Text = "Time (sec)";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 89);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 15);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Heading (deg)";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(3, 89);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(83, 15);
+            label7.TabIndex = 9;
+            label7.Text = "Heading (deg)";
+            label7.Click += label7_Click;
             // 
             // formsPlot3
             // 
-            this.formsPlot3.Location = new System.Drawing.Point(39, 231);
-            this.formsPlot3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.formsPlot3.Name = "formsPlot3";
-            this.formsPlot3.Size = new System.Drawing.Size(265, 183);
-            this.formsPlot3.TabIndex = 10;
-            this.formsPlot3.Load += new System.EventHandler(this.formsPlot3_Load);
+            formsPlot3.Location = new System.Drawing.Point(39, 231);
+            formsPlot3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            formsPlot3.Name = "formsPlot3";
+            formsPlot3.Size = new System.Drawing.Size(265, 183);
+            formsPlot3.TabIndex = 10;
+            formsPlot3.Load += formsPlot3_Load;
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(89, 412);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(63, 23);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new System.Drawing.Point(89, 412);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new System.Drawing.Size(63, 23);
+            comboBox1.TabIndex = 11;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // formsPlot4
             // 
-            this.formsPlot4.Location = new System.Drawing.Point(301, 231);
-            this.formsPlot4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.formsPlot4.Name = "formsPlot4";
-            this.formsPlot4.Size = new System.Drawing.Size(442, 183);
-            this.formsPlot4.TabIndex = 12;
-            this.formsPlot4.Load += new System.EventHandler(this.formsPlot4_Load);
+            formsPlot4.Location = new System.Drawing.Point(301, 231);
+            formsPlot4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            formsPlot4.Name = "formsPlot4";
+            formsPlot4.Size = new System.Drawing.Size(442, 183);
+            formsPlot4.TabIndex = 12;
+            formsPlot4.Load += formsPlot4_Load;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(667, 399);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 15);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Time (sec)";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(667, 399);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(61, 15);
+            label4.TabIndex = 13;
+            label4.Text = "Time (sec)";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(358, 240);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 15);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Probabilities";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(358, 240);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(72, 15);
+            label8.TabIndex = 14;
+            label8.Text = "Probabilities";
+            label8.Click += label8_Click;
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.DefaultExt = "csv";
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Arquivos csv|*.csv";
+            openFileDialog1.DefaultExt = "csv";
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.Filter = "Arquivos csv|*.csv";
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.connectionToolStripMenuItem,
-            this.priorsToolStripMenuItem,
-            this.aboutToolStripMenuItem,
-            this.reportToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(831, 24);
-            this.menuStrip1.TabIndex = 15;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, connectionToolStripMenuItem, priorsToolStripMenuItem, aboutToolStripMenuItem, reportToolStripMenuItem });
+            menuStrip1.Location = new System.Drawing.Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new System.Drawing.Size(826, 24);
+            menuStrip1.TabIndex = 15;
+            menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadPriorsToolStripMenuItem,
-            this.loadLikelihoodsToolStripMenuItem,
-            this.loadTimeSeriesToolStripMenuItem1,
-            this.saveSectionToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { loadPriorsToolStripMenuItem, loadLikelihoodsToolStripMenuItem, loadTimeSeriesToolStripMenuItem1, saveSectionToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.Click += fileToolStripMenuItem_Click;
             // 
             // loadPriorsToolStripMenuItem
             // 
-            this.loadPriorsToolStripMenuItem.Name = "loadPriorsToolStripMenuItem";
-            this.loadPriorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadPriorsToolStripMenuItem.Text = "Load Priors";
-            this.loadPriorsToolStripMenuItem.Click += new System.EventHandler(this.loadPriorsToolStripMenuItem_Click);
+            loadPriorsToolStripMenuItem.Name = "loadPriorsToolStripMenuItem";
+            loadPriorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            loadPriorsToolStripMenuItem.Text = "Load Priors";
+            loadPriorsToolStripMenuItem.Click += loadPriorsToolStripMenuItem_Click;
             // 
             // loadLikelihoodsToolStripMenuItem
             // 
-            this.loadLikelihoodsToolStripMenuItem.Name = "loadLikelihoodsToolStripMenuItem";
-            this.loadLikelihoodsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadLikelihoodsToolStripMenuItem.Text = "Load Likelihoods";
-            this.loadLikelihoodsToolStripMenuItem.Click += new System.EventHandler(this.loadLikelihoodsToolStripMenuItem_Click);
+            loadLikelihoodsToolStripMenuItem.Name = "loadLikelihoodsToolStripMenuItem";
+            loadLikelihoodsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            loadLikelihoodsToolStripMenuItem.Text = "Load Likelihoods";
+            loadLikelihoodsToolStripMenuItem.Click += loadLikelihoodsToolStripMenuItem_Click;
             // 
             // loadTimeSeriesToolStripMenuItem1
             // 
-            this.loadTimeSeriesToolStripMenuItem1.Name = "loadTimeSeriesToolStripMenuItem1";
-            this.loadTimeSeriesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.loadTimeSeriesToolStripMenuItem1.Text = "Load Time Series";
-            this.loadTimeSeriesToolStripMenuItem1.Click += new System.EventHandler(this.loadTimeSeriesToolStripMenuItem_Click);
+            loadTimeSeriesToolStripMenuItem1.Name = "loadTimeSeriesToolStripMenuItem1";
+            loadTimeSeriesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            loadTimeSeriesToolStripMenuItem1.Text = "Load Time Series";
+            loadTimeSeriesToolStripMenuItem1.Click += loadTimeSeriesToolStripMenuItem_Click;
             // 
             // saveSectionToolStripMenuItem
             // 
-            this.saveSectionToolStripMenuItem.Name = "saveSectionToolStripMenuItem";
-            this.saveSectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveSectionToolStripMenuItem.Text = "Save Section";
+            saveSectionToolStripMenuItem.Name = "saveSectionToolStripMenuItem";
+            saveSectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            saveSectionToolStripMenuItem.Text = "Save Section";
             // 
             // connectionToolStripMenuItem
             // 
-            this.connectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connectToGPSToolStripMenuItem,
-            this.connectToDynasimToolStripMenuItem,
-            this.connectToTCPIPToolStripMenuItem});
-            this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.connectionToolStripMenuItem.Text = "Connection";
-            this.connectionToolStripMenuItem.Click += new System.EventHandler(this.connectionToolStripMenuItem_Click);
+            connectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { connectToGPSToolStripMenuItem, connectToDynasimToolStripMenuItem, connectToTCPIPToolStripMenuItem });
+            connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
+            connectionToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            connectionToolStripMenuItem.Text = "Connection";
+            connectionToolStripMenuItem.Click += connectionToolStripMenuItem_Click;
             // 
             // connectToGPSToolStripMenuItem
             // 
-            this.connectToGPSToolStripMenuItem.Name = "connectToGPSToolStripMenuItem";
-            this.connectToGPSToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.connectToGPSToolStripMenuItem.Text = "Connect to GPS";
-            this.connectToGPSToolStripMenuItem.Click += new System.EventHandler(this.connectToGPSToolStripMenuItem_Click);
+            connectToGPSToolStripMenuItem.Name = "connectToGPSToolStripMenuItem";
+            connectToGPSToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            connectToGPSToolStripMenuItem.Text = "Connect to GPS";
+            connectToGPSToolStripMenuItem.Click += connectToGPSToolStripMenuItem_Click;
             // 
             // connectToDynasimToolStripMenuItem
             // 
-            this.connectToDynasimToolStripMenuItem.Name = "connectToDynasimToolStripMenuItem";
-            this.connectToDynasimToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.connectToDynasimToolStripMenuItem.Text = "Connect to Database";
+            connectToDynasimToolStripMenuItem.Name = "connectToDynasimToolStripMenuItem";
+            connectToDynasimToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            connectToDynasimToolStripMenuItem.Text = "Connect to Database";
             // 
             // connectToTCPIPToolStripMenuItem
             // 
-            this.connectToTCPIPToolStripMenuItem.Name = "connectToTCPIPToolStripMenuItem";
-            this.connectToTCPIPToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.connectToTCPIPToolStripMenuItem.Text = "Connect to TCP/IP";
+            connectToTCPIPToolStripMenuItem.Name = "connectToTCPIPToolStripMenuItem";
+            connectToTCPIPToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            connectToTCPIPToolStripMenuItem.Text = "Connect to TCP/IP";
             // 
             // priorsToolStripMenuItem
             // 
-            this.priorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showPriorsToolStripMenuItem,
-            this.likelihoodTablesToolStripMenuItem});
-            this.priorsToolStripMenuItem.Name = "priorsToolStripMenuItem";
-            this.priorsToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
-            this.priorsToolStripMenuItem.Text = "Bayes Network";
-            this.priorsToolStripMenuItem.Click += new System.EventHandler(this.priorsToolStripMenuItem_Click);
+            priorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { showPriorsToolStripMenuItem, likelihoodTablesToolStripMenuItem });
+            priorsToolStripMenuItem.Name = "priorsToolStripMenuItem";
+            priorsToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            priorsToolStripMenuItem.Text = "Bayes Network";
+            priorsToolStripMenuItem.Click += priorsToolStripMenuItem_Click;
             // 
             // showPriorsToolStripMenuItem
             // 
-            this.showPriorsToolStripMenuItem.Name = "showPriorsToolStripMenuItem";
-            this.showPriorsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.showPriorsToolStripMenuItem.Text = "Priors";
-            this.showPriorsToolStripMenuItem.Click += new System.EventHandler(this.showPriorsToolStripMenuItem_Click);
+            showPriorsToolStripMenuItem.Name = "showPriorsToolStripMenuItem";
+            showPriorsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            showPriorsToolStripMenuItem.Text = "Priors";
+            showPriorsToolStripMenuItem.Click += showPriorsToolStripMenuItem_Click;
             // 
             // likelihoodTablesToolStripMenuItem
             // 
-            this.likelihoodTablesToolStripMenuItem.Name = "likelihoodTablesToolStripMenuItem";
-            this.likelihoodTablesToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.likelihoodTablesToolStripMenuItem.Text = "Likelihood Tables";
+            likelihoodTablesToolStripMenuItem.Name = "likelihoodTablesToolStripMenuItem";
+            likelihoodTablesToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            likelihoodTablesToolStripMenuItem.Text = "Likelihood Tables";
             // 
             // aboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.versionToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.aboutToolStripMenuItem.Text = "Reporting";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { versionToolStripMenuItem, helpToolStripMenuItem });
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            aboutToolStripMenuItem.Text = "Reporting";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // versionToolStripMenuItem
             // 
-            this.versionToolStripMenuItem.Name = "versionToolStripMenuItem";
-            this.versionToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.versionToolStripMenuItem.Text = "Graphs";
-            this.versionToolStripMenuItem.Click += new System.EventHandler(this.versionToolStripMenuItem_Click);
+            versionToolStripMenuItem.Name = "versionToolStripMenuItem";
+            versionToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            versionToolStripMenuItem.Text = "Graphs";
+            versionToolStripMenuItem.Click += versionToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem
             // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.helpToolStripMenuItem.Text = "Tables";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            helpToolStripMenuItem.Text = "Tables";
+            helpToolStripMenuItem.Click += helpToolStripMenuItem_Click;
             // 
             // reportToolStripMenuItem
             // 
-            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.versionToolStripMenuItem1,
-            this.supportToolStripMenuItem});
-            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.reportToolStripMenuItem.Text = "About";
+            reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { versionToolStripMenuItem1, supportToolStripMenuItem });
+            reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            reportToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            reportToolStripMenuItem.Text = "About";
             // 
             // versionToolStripMenuItem1
             // 
-            this.versionToolStripMenuItem1.Name = "versionToolStripMenuItem1";
-            this.versionToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
-            this.versionToolStripMenuItem1.Text = "Version";
+            versionToolStripMenuItem1.Name = "versionToolStripMenuItem1";
+            versionToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            versionToolStripMenuItem1.Text = "Version";
             // 
             // supportToolStripMenuItem
             // 
-            this.supportToolStripMenuItem.Name = "supportToolStripMenuItem";
-            this.supportToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.supportToolStripMenuItem.Text = "Support";
+            supportToolStripMenuItem.Name = "supportToolStripMenuItem";
+            supportToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            supportToolStripMenuItem.Text = "Support";
             // 
             // comboBox2
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(348, 412);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(63, 23);
-            this.comboBox2.TabIndex = 16;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new System.Drawing.Point(348, 412);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new System.Drawing.Size(63, 23);
+            comboBox2.TabIndex = 16;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(89, 240);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 15);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Priors";
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(89, 240);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(37, 15);
+            label9.TabIndex = 17;
+            label9.Text = "Priors";
             // 
             // bindingSource1
             // 
-            this.bindingSource1.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.bindingSource1_AddingNew);
+            bindingSource1.AddingNew += bindingSource1_AddingNew;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(474, 434);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 23);
-            this.textBox1.TabIndex = 18;
+            textBox1.Location = new System.Drawing.Point(474, 434);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(170, 23);
+            textBox1.TabIndex = 18;
             // 
             // timer2
             // 
-            this.timer2.Tick += new System.EventHandler(this.tempo2);
+            timer2.Tick += tempo2;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 469);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.formsPlot4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.formsPlot3);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.formsPlot2);
-            this.Controls.Add(this.formsPlot1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "SISTEMA LINES-BAYES - LOC/COPPE/UFRJ - CENPES/PETROBRAS";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(826, 469);
+            Controls.Add(textBox1);
+            Controls.Add(label9);
+            Controls.Add(comboBox2);
+            Controls.Add(label8);
+            Controls.Add(label4);
+            Controls.Add(formsPlot4);
+            Controls.Add(comboBox1);
+            Controls.Add(formsPlot3);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(formsPlot2);
+            Controls.Add(formsPlot1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Name = "Form1";
+            Text = "SISTEMA LINES-BAYES - LOC/COPPE/UFRJ - CENPES/PETROBRAS";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -473,6 +457,6 @@ namespace Bayes4
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer timer2;
-    }
+        }
 }
 

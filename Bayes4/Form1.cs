@@ -9,12 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LumenWorks.Framework.IO.Csv;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Bayes4
 {
     public partial class Form1 : Form
     {
-        public  Form1()
+        public Form1()
         {
             InitializeComponent();
 
@@ -43,7 +45,7 @@ namespace Bayes4
 
         //vetores do GPS
 
-        List<double> Vtempo = new List<double>() {0.0 };
+        List<double> Vtempo = new List<double>() { 0.0 };
         List<double> XFPSO = new List<double>() { 0.0 };
         List<double> YFPSO = new List<double>() { 0.0 };
         List<double> ZZFPSO = new List<double>() { 0.0 };
@@ -59,14 +61,14 @@ namespace Bayes4
 
         // Probabilidades de saída
 
-        double[,] Phead = new double[15,2];
-        double[,] Poffs = new double[15,2];
+        double[,] Phead = new double[15, 2];
+        double[,] Poffs = new double[15, 2];
 
         // Probabilidades apriorísticas
 
-        Dictionary <string,double> Plinh = new Dictionary<string,double>();
-        Dictionary <string,double> Pincd = new Dictionary<string,double>();
-        Dictionary <string,double> Pseve = new Dictionary<string,double>();
+        Dictionary<string, double> Plinh = new Dictionary<string, double>();
+        Dictionary<string, double> Pincd = new Dictionary<string, double>();
+        Dictionary<string, double> Pseve = new Dictionary<string, double>();
 
         // Verossimilhanças
 
@@ -127,7 +129,7 @@ namespace Bayes4
 
             formsPlot2.Plot.Clear();
 
-            formsPlot2.Plot.AddScatter(Xvec,Yvec);
+            formsPlot2.Plot.AddScatter(Xvec, Yvec);
 
             formsPlot2.Refresh();
 
@@ -225,56 +227,47 @@ namespace Bayes4
 
         private void loadTimeSeriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Comandos que viabilizam o input de arquivos do tipo .mot
+
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Arquivos MOT (*.mot) | *.mot;";
+            openFileDialog1.Title = "Importar arquivo";
+
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                //                int counter = 0;
+                string filePath = openFileDialog1.FileName;
+                string extension = Path.GetExtension(filePath);
 
-                // Read the file and display it line by line.  
-                //                foreach (string line in System.IO.File.ReadLines(@openFileDialog1.FileName))
-                //               {
-                //
-                //                   textBox1.Text = line;
-                //
-                //                    counter++;
-
-                var csvTable = new DataTable();
-                using (var csvReader = new CsvReader(new System.IO.StreamReader(System.IO.File.OpenRead(@openFileDialog1.FileName)), true))
+                if (extension == ".mot")
                 {
-                    csvTable.Load(csvReader);
+                    // Comandos que lêem o arquivo e o transforma em vetores
+
+                    string[] linhas = File.ReadAllLines(filePath);
+
+                    int Linhas = linhas.Length;
+
+                    string[] data = new string[Linhas - 1];
+                    string[] hora = new string[Linhas - 1];
+                    float[] roll = new float[Linhas - 1];
+                    float[] pitch = new float[Linhas - 1];
+                    float[] yaw = new float[Linhas - 1];
+
+                    for (int i = 1; i < Linhas - 1; i++)
+                    {
+                        string[] linha = linhas[i].Split(" ");
+
+                        data[i] = linha[0];
+                        hora[i] = linha[1];
+                        roll[i] = float.Parse(linha[2]);
+                        pitch[i] = float.Parse(linha[3]);
+                        yaw[i] = float.Parse(linha[4]);
+
+                    }
+
 
                 }
-
-                // Carregando a time series simulando o GPS
-
-
-                for (int i = 0; i < csvTable.Rows.Count; i++)
-                {
-
-                    string time = csvTable.Rows[i][0].ToString();
-                    string x = csvTable.Rows[i][1].ToString();
-                    string y = csvTable.Rows[i][2].ToString();
-                    string zz = csvTable.Rows[i][6].ToString();
-
-
-                    // Guarda a serie lida nas variaveis globais
-
-                    Vtempo1.Add(Convert.ToDouble(time));
-
-                    XFPSO1.Add(Convert.ToDouble(x));
-                    YFPSO1.Add(Convert.ToDouble(y));
-                    ZZFPSO1.Add(Convert.ToDouble(zz));
-
-                }
-
-                // zera o indice de tempo e dispara o Timer2 (ref a arquivo de série)
-
-                itempo = 0;
-
-                timer1.Enabled = false;
-                timer2.Start();
-
             }
-           
+
         }
 
         private void loadLikelihoodsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -305,7 +298,7 @@ namespace Bayes4
                     {
                         string row = csvTable.Rows[i][j].ToString();
 
-                        Lhead[j,k1,k2,k3] = Convert.ToDouble(row);
+                        Lhead[j, k1, k2, k3] = Convert.ToDouble(row);
 
                         k3++;
 
@@ -319,7 +312,7 @@ namespace Bayes4
                                 k1 = 0;
                                 k2++;
 
-                                if(k2==35)
+                                if (k2 == 35)
                                 {
                                     k2 = 0;
                                 }
@@ -377,18 +370,18 @@ namespace Bayes4
                     string A = csvTable.Rows[i][0].ToString();
                     string pA = csvTable.Rows[i][1].ToString();
 
-                    if (i<k1)
+                    if (i < k1)
                     {
                         Plinh.Add(A, Convert.ToDouble(pA));
                     }
 
-                    if (k1<=i & i<(k1+k2))
+                    if (k1 <= i & i < (k1 + k2))
                     {
                         Pseve.Add(A, Convert.ToDouble(pA));
                     }
 
 
-                    if ((k1+k2)<=i & i<=(k1+k2+k3))
+                    if ((k1 + k2) <= i & i <= (k1 + k2 + k3))
                     {
                         Pincd.Add(A, Convert.ToDouble(pA));
                     }
@@ -412,7 +405,7 @@ namespace Bayes4
 
             itempo++;
 
-            if (itempo<=Vtempo1.Count)
+            if (itempo <= Vtempo1.Count)
             {
                 double[] Timevec = new double[itempo];
                 double[] Xvec = new double[itempo];
